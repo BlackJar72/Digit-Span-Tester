@@ -194,7 +194,7 @@ class TestingWindow extends JFrame implements KeyListener,
             } else testArea.setText(" "); // This is needed to keep alternation.
             if(ControlVariables.audioStimuli) {
                 //System.out.println(stimuli.get(i, j, k));
-                Sound.registry.get(stimuli.get(i, j, k));
+                Sound.registry.get(stimuli.get(i, j, k)).play();
             }
         } else {
             if(ControlVariables.keyForNext) {
