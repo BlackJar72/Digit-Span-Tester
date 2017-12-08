@@ -26,6 +26,8 @@ package edu.utk.web.enlil.digitspan;
 */
 
 import edu.utk.web.enlil.RandomSequencer;
+import jaredbgreat.arcade.loader.AudioLoader;
+import jaredbgreat.arcade.ui.sound.Sound;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,7 +49,6 @@ public final class DigitSpanTester implements Runnable {
 
     RandomSequencer generator;
     ConfigLoader configuration;
-    Sounds sounds;
     private String testID; // Identifies taker / test for human use
 
     private int newValInt;
@@ -56,7 +57,7 @@ public final class DigitSpanTester implements Runnable {
 
     public DigitSpanTester() {
         generator = new RandomSequencer();
-        sounds = new Sounds();
+        AudioLoader.initAudio();
         try {
             if(!dstHome.exists()) dstHome.mkdir();
             configuration = new ConfigLoader(this);
@@ -116,7 +117,8 @@ public final class DigitSpanTester implements Runnable {
         mainWindow.printResults.setEnabled(ControlVariables.testCompleted);
         mainWindow.resultPane.resultText.setText(responces.scoreToHTML());
         mainWindow.resultPane.resultText.setCaretPosition(0);
-        if(ControlVariables.endingSound) sounds.play(11);
+        if(ControlVariables.endingSound) 
+            Sound.registry.getFromName("tone3").play();
         if(ControlVariables.autoShowResults) mainWindow.setPage(25);
         if(ControlVariables.logResults) {
             ResultLogger newLog = new ResultLogger(testID,
@@ -131,7 +133,8 @@ public final class DigitSpanTester implements Runnable {
         mainWindow.showResults.setEnabled(ControlVariables.testCompleted);
         mainWindow.saveResults.setEnabled(ControlVariables.testCompleted);
         mainWindow.printResults.setEnabled(ControlVariables.testCompleted);
-        if(ControlVariables.endingSound) sounds.play(10);
+        if(ControlVariables.endingSound) 
+            Sound.registry.getFromName("tone2").play();
         mainWindow.setVisible(true);
     }
 

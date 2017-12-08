@@ -1,0 +1,17 @@
+0 0.wav
+1 1.wav
+2 2.wav
+3 3.wav
+4 4.wav
+5 5.wav
+6 6.wav
+7 7.wav
+8 8.wav
+9 9.wav
+
+go go.wav
+stop stop.wav
+
+tone2 tone2.wav
+tone3 tone3.wav
+

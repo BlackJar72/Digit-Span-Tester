@@ -25,6 +25,7 @@ package edu.utk.web.enlil.digitspan;
 // http://www.gnu.org/copyleft/gpl.html
 */
 
+import jaredbgreat.arcade.ui.sound.Sound;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -110,8 +111,8 @@ class TestingWindow extends JFrame implements KeyListener,
         responcePane.setVisible(false);
         testPane.setVisible(true);
         testArea.setVisible(true);
-        responceFont = new Font("Times New Roman", Font.PLAIN, 28);
-        stimulusFont = new Font("Times New Roman", Font.BOLD, 128);
+        responceFont = new Font("Serif", Font.PLAIN, 28);
+        stimulusFont = new Font("Serif", Font.BOLD, 128);
         responceArea.setFont(responceFont);
         responceLabel.setFont(responceFont);
         testArea.setFont(stimulusFont);
@@ -180,18 +181,21 @@ class TestingWindow extends JFrame implements KeyListener,
             if(ControlVariables.keyForNext) 
                 timer2.setInitialDelay(ControlVariables.initDelay);
             if(ControlVariables.blindAssist || (ControlVariables.soundWAudio &&
-                    ControlVariables.audioStimuli)) mainClass.sounds.play(13);
+                    ControlVariables.audioStimuli)) Sound.registry.getFromName("go").play();
         } else if(testArea.getText().equals("")) {
             if(ControlVariables.keyForNext) {
                 timer2.stop();
                 timer2.setInitialDelay(ControlVariables.pauseTime);
                 addKeyListener(this);
             }
-            if(ControlVariables.visualStimuli)
+            if(ControlVariables.visualStimuli) {
+                //System.out.print(stimuli.get(i, j, k) + " = ");
                 testArea.setText(" " + stimuli.get(i, j, k) + " ");
-            else testArea.setText(" "); // This is needed to keep alternation.
-            if(ControlVariables.audioStimuli) 
-                mainClass.sounds.play(stimuli.get(i, j, k));
+            } else testArea.setText(" "); // This is needed to keep alternation.
+            if(ControlVariables.audioStimuli) {
+                //System.out.println(stimuli.get(i, j, k));
+                Sound.registry.get(stimuli.get(i, j, k));
+            }
         } else {
             if(ControlVariables.keyForNext) {
                 removeKeyListener(this);
@@ -235,7 +239,7 @@ class TestingWindow extends JFrame implements KeyListener,
                     ControlVariables.audioStimuli))) &&
                     ((j + 1 < stimuli.getSetSize()) ||
                     (i + 1 < stimuli.getNumSets())))
-                mainClass.sounds.play(12);
+                Sound.registry.getFromName("stop").play();
             if(responces.checkOne(stimuli, i, j) && ControlVariables.limitErrors) 
                 missedAll = false;
             administerNext();
@@ -273,13 +277,19 @@ class TestingWindow extends JFrame implements KeyListener,
     // These are treated as window closing events, since they have the same
     // practical effect of invalidating the test; windowClosed() is included
     // incase a different OS handles it differently.
+    @Override
     public void windowClosed(WindowEvent e) {windowClosing(e);}
+    @Override
     public void windowIconified(WindowEvent e) {windowClosing(e);}
+    @Override
     public void windowDeactivated(WindowEvent e) {windowClosing(e);}
     // These are empty as default behvior is acceptable (and these shouldn't be
     // possible anyway).
+    @Override
     public void windowActivated(WindowEvent e) {}
+    @Override
     public void windowDeiconified(WindowEvent e) {}
+    @Override
     public void windowOpened(WindowEvent e) {}
 // <editor-fold defaultstate="collapsed" desc="Main Function">
 //For Testing only!!!
