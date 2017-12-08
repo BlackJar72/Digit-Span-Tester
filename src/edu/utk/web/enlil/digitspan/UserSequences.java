@@ -65,7 +65,8 @@ final class UserSequences extends AbstractSequences {
             if(data[i][j][l] == match.data[i][j][k + n] &&
                     data[i][j][l + 1] == match.data[i][j][k + n + 1]) {
                 if(k + n + 2 >= match.data.length) return true;
-                if(data[i][j][l + 2] == match.data[i][j][k + n + 2]) return true;
+                if(data[i][j][l + 2] 
+                        == match.data[i][j][k + n + 2]) return true;
             }
         }
         return false;

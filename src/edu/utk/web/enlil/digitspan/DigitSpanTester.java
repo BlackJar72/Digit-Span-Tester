@@ -31,6 +31,7 @@ import jaredbgreat.arcade.ui.sound.Sound;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -39,6 +40,7 @@ public final class DigitSpanTester implements Runnable {
 
     private MainWindow mainWindow;
     private TestingWindow theTest;
+    private JOptionPane done;
 
     private GeneratedSequences stimuli;
     private UserSequences responces;
@@ -57,6 +59,7 @@ public final class DigitSpanTester implements Runnable {
 
     public DigitSpanTester() {
         generator = new RandomSequencer();
+        done = new JOptionPane();
         AudioLoader.initAudio();
         try {
             if(!dstHome.exists()) dstHome.mkdir();
@@ -110,7 +113,7 @@ public final class DigitSpanTester implements Runnable {
     }
 
 
-    void testComplete(boolean maxedOut, int longest) {
+    void testComplete(boolean maxedOut, int longest) {        
         responces.score(stimuli, maxedOut, longest);
         mainWindow.showResults.setEnabled(ControlVariables.testCompleted);
         mainWindow.saveResults.setEnabled(ControlVariables.testCompleted);
@@ -125,6 +128,7 @@ public final class DigitSpanTester implements Runnable {
                     responces.scoreToText(), responces.digitsForward);
             newLog.start();
         }
+        done.showMessageDialog(mainWindow, "Done!");
         mainWindow.setVisible(true);
     }
 

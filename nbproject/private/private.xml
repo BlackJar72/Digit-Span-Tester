@@ -6,4 +6,19 @@
             <line>278</line>
         </file>
     </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0">
+        <file>
+            <url>src/edu/utk/web/enlil/digitspan/MainWindow.java</url>
+            <bookmark id="0">
+                <name/>
+                <line>278</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/jared/Documents/src/NetBeansProjects/Digit-Span-Tester/src/edu/utk/web/enlil/digitspan/UserSequences.java</file>
+        </group>
+    </open-files>
 </project-private>
