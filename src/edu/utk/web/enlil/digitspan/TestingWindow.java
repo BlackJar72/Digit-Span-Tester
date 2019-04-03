@@ -263,16 +263,21 @@ class TestingWindow extends JFrame implements KeyListener,
     }
 
 
-    public void windowClosing(WindowEvent e) {
-        // If the window is closed, minimized, or loses focus the test is
-        // invalidated and must be aborted (and presumably restarted).
+
+    public void killWindow() {
         responceArea.setEditable(false);
         responcePane.setVisible(false);
         ControlVariables.testCompleted = done;
-        mainClass.testAborted();
         setVisible(false);
         timer1.stop();
         timer2.stop();
+    }
+
+    public void windowClosing(WindowEvent e) {
+        // If the window is closed, minimized, or loses focus the test is
+        // invalidated and must be aborted (and presumably restarted).
+    	killWindow();
+        mainClass.testAborted();
     }
 
 
@@ -284,7 +289,7 @@ class TestingWindow extends JFrame implements KeyListener,
     @Override
     public void windowIconified(WindowEvent e) {windowClosing(e);}
     @Override
-    public void windowDeactivated(WindowEvent e) {windowClosing(e);}
+    public void windowDeactivated(WindowEvent e) {killWindow();}
     // These are empty as default behvior is acceptable (and these shouldn't be
     // possible anyway).
     @Override
@@ -293,15 +298,6 @@ class TestingWindow extends JFrame implements KeyListener,
     public void windowDeiconified(WindowEvent e) {}
     @Override
     public void windowOpened(WindowEvent e) {}
-// <editor-fold defaultstate="collapsed" desc="Main Function">
-//For Testing only!!!
-/*    public static void main(String args[]) {
-    java.awt.EventQueue.invokeLater(new Runnable() {
-    public void run() {
-    new TestingWindow(new DigitSpanTester()).setVisible(true);
-    }
-    });
-    }*/// </editor-fold>
 
 
 	public int getCounter() {
