@@ -134,6 +134,7 @@ class TestingWindow extends JFrame implements KeyListener,
 
 
     private void administerNextGroup() {
+    	if(done) return;
         if(missedAll && ControlVariables.limitErrors) {
             timesMissedAll++;
             if(timesMissedAll >= ControlVariables.errorLimit) {
@@ -152,6 +153,7 @@ class TestingWindow extends JFrame implements KeyListener,
 
 
     private void administerNext() {
+    	if(done) return;
         if(++j >= stimuli.getSetSize()) administerNextGroup();
         else {
             k = 0;
