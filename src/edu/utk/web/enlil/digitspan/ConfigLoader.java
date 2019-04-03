@@ -60,7 +60,8 @@ final class ConfigLoader {
     }
     
 
-    void load() throws FileNotFoundException, IOException,
+    @SuppressWarnings("unchecked")
+	void load() throws FileNotFoundException, IOException,
             ClassNotFoundException {
         // See if there is one, if not return.  Don't check for readability here
         // as an existant but unreadable config file shouldn't nornally occure
@@ -68,7 +69,7 @@ final class ConfigLoader {
         if(!configFile.exists()) return;
         configIn = new ObjectInputStream(new
                 BufferedInputStream(new FileInputStream(configFile)));
-        setup = (HashMap) configIn.readObject();
+        setup = (HashMap<String, String>) configIn.readObject();
         configIn.close();
         if(Boolean.parseBoolean(setup.get("useConfig"))) setVariables();
         else return;

@@ -51,8 +51,10 @@ import java.util.HashMap;
  * @author jared
  */
 final class ControlCodes extends HashMap<String,Integer>{
+	private static final long serialVersionUID = -1470878155798756795L;
 
-    public ControlCodes() {
+
+	public ControlCodes() {
         // Codes for the main menu
         put("quit",           new Integer(0));
         put("saveResults",    new Integer(1));

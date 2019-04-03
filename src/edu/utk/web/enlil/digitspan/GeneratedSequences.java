@@ -30,15 +30,8 @@ import edu.utk.web.enlil.RandomSequencer;
 
 final class GeneratedSequences extends AbstractSequences {
 
-    private RandomSequencer generator;
-
-
-    private GeneratedSequences() {}
-
-
     public GeneratedSequences(int minLength, int maxLength, int setSize,
                 int algorithm, RandomSequencer generator) {
-        this.generator = generator;
         int numSets = maxLength - minLength + 1;
         data = new int[numSets][][];
         for(i = 0, k = minLength; i < numSets; i++, k++) {

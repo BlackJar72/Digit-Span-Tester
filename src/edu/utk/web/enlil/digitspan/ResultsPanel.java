@@ -31,12 +31,11 @@ import java.awt.*;
 
 class ResultsPanel extends JPanel {
 
-    private DigitSpanTester mainClass;
-    private ControlListener listener;
+
+	private static final long serialVersionUID = 6097714551120446330L;
+	private ControlListener listener;
 
     private JScrollPane resultScroll;
-    private BorderLayout mainLayout;
-    private JPanel contentPane;
     private JPanel buttonPane;
     
     JButton saveButton;

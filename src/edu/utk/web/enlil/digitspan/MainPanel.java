@@ -31,7 +31,9 @@ import java.awt.*;
 
 class MainPanel extends JPanel {
 
-     DigitSpanTester mainClass;
+
+	private static final long serialVersionUID = 2837315943139524154L;
+	DigitSpanTester mainClass;
      ControlListener listener;
 
      BorderLayout mainLayout;

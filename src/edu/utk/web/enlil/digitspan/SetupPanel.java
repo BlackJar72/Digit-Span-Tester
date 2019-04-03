@@ -31,15 +31,16 @@ import java.awt.*;
 
 class SetupPanel extends JPanel {
 
-    private ControlListener listener;
+
+	private static final long serialVersionUID = -3743774248729423411L;
+	private ControlListener listener;
     DigitSpanTester mainClass;
 
     JTabbedPane contentPane;
     JPanel content1;
     JPanel content2;
     JPanel buttonPane;
-    private BoxLayout buttons;
-
+    
     JLabel basicLabel;
     JLabel modeLabel;
     JLabel specialLabel;
@@ -80,9 +81,6 @@ class SetupPanel extends JPanel {
     private GridBagConstraints basicC;
     private GridBagConstraints modeC;
     private GridBagConstraints specialC;
-    private GridBagConstraints spacerH1C;
-    private GridBagConstraints spacerV1C;
-    
     JLabel stimTimeL;
     JLabel stimPauseL;
     JLabel errorLimitL;
@@ -98,20 +96,16 @@ class SetupPanel extends JPanel {
     JCheckBox anyKeyB;
     
     private GridBagLayout advLayout;   
-    private GridBagConstraints spacerH2C;
     private GridBagConstraints spacerV2C;
-    private GridBagConstraints timingLC;    
     private GridBagConstraints stimTimeLC;
     private GridBagConstraints stimPauseLC;  
     private GridBagConstraints stimTimeFC;
     private GridBagConstraints stimPauseFC; 
     private GridBagConstraints extraDelayFC; 
     private GridBagConstraints extraDelayLBC; 
-    private GridBagConstraints limitLabelC; 
     private GridBagConstraints errorLimitLC;  
     private GridBagConstraints errorLimitFC;
     private GridBagConstraints limitErrorsC; 
-    private GridBagConstraints keyNextLabelC; 
     private GridBagConstraints keyNextC; 
     private GridBagConstraints anyKeyC; 
 
@@ -178,18 +172,18 @@ class SetupPanel extends JPanel {
         researchC = new GridBagConstraints(2, 2, 1, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);
-        spacerH1C = new GridBagConstraints(1, 0, 1, 1, 0.5, 1.0,
+        new GridBagConstraints(1, 0, 1, 1, 0.5, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);
-        spacerV1C = new GridBagConstraints(2, 3, 1, 1, 1.0, 1.0,
+        new GridBagConstraints(2, 3, 1, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);
         
          
-        timingLC = new GridBagConstraints(0, 0, 5, 1, 1.0, 1.0,
+        new GridBagConstraints(0, 0, 5, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);      
-        spacerH2C = new GridBagConstraints(0, 3, 1, 1, 1.0, 1.0,
+        new GridBagConstraints(0, 3, 1, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);
         spacerV2C = new GridBagConstraints(1, 2, 1, 1, 1.0, 1.0,
@@ -213,7 +207,7 @@ class SetupPanel extends JPanel {
         extraDelayFC = new GridBagConstraints(1, 3, 4, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);         
-        limitLabelC = new GridBagConstraints(0, 4, 5, 1, 1.0, 1.0,
+        new GridBagConstraints(0, 4, 5, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);         
         limitErrorsC = new GridBagConstraints(0, 5, 1, 1, 1.0, 1.0,
@@ -225,7 +219,7 @@ class SetupPanel extends JPanel {
         errorLimitFC = new GridBagConstraints(4, 5, 1, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);        
-        keyNextLabelC = new GridBagConstraints(0, 6, 5, 1, 1.0, 1.0,
+        new GridBagConstraints(0, 6, 5, 1, 1.0, 1.0,
                 GridBagConstraints.EAST, GridBagConstraints.HORIZONTAL,
                 allIns, 3, 3);         
         keyNextC = new GridBagConstraints(0, 7, 1, 1, 1.0, 1.0,
@@ -428,7 +422,7 @@ class SetupPanel extends JPanel {
         content2.add(anyKeyB, anyKeyC);
 
         buttonPane = new JPanel();
-        buttons = new BoxLayout(buttonPane, BoxLayout.X_AXIS);
+        new BoxLayout(buttonPane, BoxLayout.X_AXIS);
         add(buttonPane, BorderLayout.SOUTH);
 
         saveConfigB = new JButton("Save Config");

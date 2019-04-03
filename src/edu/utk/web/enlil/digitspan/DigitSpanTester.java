@@ -40,8 +40,6 @@ public final class DigitSpanTester implements Runnable {
 
     private MainWindow mainWindow;
     private TestingWindow theTest;
-    private JOptionPane done;
-
     private GeneratedSequences stimuli;
     private UserSequences responces;
     static final File dstHome = new File(System.getProperty("user.home")
@@ -59,7 +57,7 @@ public final class DigitSpanTester implements Runnable {
 
     public DigitSpanTester() {
         generator = new RandomSequencer();
-        done = new JOptionPane();
+        new JOptionPane();
         AudioLoader.initAudio();
         try {
             if(!dstHome.exists()) dstHome.mkdir();
@@ -128,7 +126,7 @@ public final class DigitSpanTester implements Runnable {
                     responces.scoreToText(), responces.digitsForward);
             newLog.start();
         }
-        done.showMessageDialog(mainWindow, "Done!");
+        JOptionPane.showMessageDialog(mainWindow, "Done!");
         mainWindow.setVisible(true);
     }
 

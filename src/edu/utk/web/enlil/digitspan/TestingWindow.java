@@ -35,13 +35,14 @@ import java.awt.event.*;
 class TestingWindow extends JFrame implements KeyListener,
         WindowListener, ActionListener {
     
-    private DigitSpanTester mainClass;
+
+	private static final long serialVersionUID = 4037641553406420376L;
+
+	private DigitSpanTester mainClass;
 
     private GeneratedSequences stimuli;
     private UserSequences responces;
     private int imput; // Sorry, I like the tradional, non-computer-geek, word
-    private String imputTxt;
-
     private JPanel mainPane;
     private JLabel testArea;
     private JTextField responceArea;
@@ -53,7 +54,6 @@ class TestingWindow extends JFrame implements KeyListener,
     private Timer timer1, timer2, timer3;
 
     private int i, j, k, counter = 0;
-    private boolean setOver = false;
     private boolean done = false;
     private boolean maxedOut = false;
     
@@ -127,7 +127,7 @@ class TestingWindow extends JFrame implements KeyListener,
         this.responces = responces;
         ControlVariables.testCompleted = done = false;
         i = j = -1;
-        k = counter = 0;
+        k = setCounter(0);
         setVisible(true);
         administerNextGroup();
     }
@@ -300,4 +300,15 @@ class TestingWindow extends JFrame implements KeyListener,
     }
     });
     }*/// </editor-fold>
+
+
+	public int getCounter() {
+		return counter;
+	}
+
+
+	public int setCounter(int counter) {
+		this.counter = counter;
+		return counter;
+	}
 }

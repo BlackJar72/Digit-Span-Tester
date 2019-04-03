@@ -37,8 +37,6 @@ import javax.swing.JEditorPane;
 // TODO
 class PrintExporter extends Thread {
 
-    private MainWindow mainWindow;
-    private DigitSpanTester mainClass;
     private RandomSequencer generator;
 
     static final int PRINT_RESULTS = 0;
@@ -63,7 +61,6 @@ class PrintExporter extends Thread {
 
     public PrintExporter(String recordID, String data, 
             MainWindow mainWindow, boolean digitsForward) {
-        this.mainWindow = mainWindow;
         results = new ResultRecord(recordID, data, digitsForward);
         document = new JEditorPane();
         mode = PRINT_RESULTS;
@@ -76,7 +73,6 @@ class PrintExporter extends Thread {
                 + "save results mode (mode 0).");
         if(mode < 1 || mode > 2 ) throw new IOException("Incorrect output mode!");
         this.mode = mode;
-        this.mainWindow = mainWindow;
         numToDo = ControlVariables.numToDo;
         length = ControlVariables.length;
         algorithm = ControlVariables.algorithm;

@@ -45,12 +45,6 @@ final class ControlListener implements ActionListener {
     private DigitSpanTester mainClass;
     private MainWindow mainWindow;
 
-    private int oldNumToDo = 10;
-
-
-    private ControlListener() {}; // Must not be instantiated alone!
-
-
     public ControlListener(MainWindow mainWindow,
             DigitSpanTester mainClass) {
         // Link to controled objects

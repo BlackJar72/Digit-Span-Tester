@@ -32,7 +32,9 @@ import java.util.Date;
 
 class ResultRecord implements Serializable {
 
-    String data;
+
+	private static final long serialVersionUID = -30403692651927556L;
+	String data;
     String recordID;
     Date when;
     boolean digitsForward;

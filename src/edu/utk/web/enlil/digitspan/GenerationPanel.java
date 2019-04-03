@@ -32,7 +32,9 @@ import java.awt.*;
 
 class GenerationPanel extends JPanel {
 
-     DigitSpanTester mainClass;
+	// This ID added by eclipse; not really used
+	private static final long serialVersionUID = 1L;
+	DigitSpanTester mainClass;
      ControlListener listener;
      RandomSequencer generator;
 

@@ -38,10 +38,11 @@ import javax.swing.event.HyperlinkListener;
 
 class HelpPanel extends JTabbedPane implements HyperlinkListener {
 
-    private DigitSpanTester mainClass;
-    private ControlListener listener;
-
-    private JPanel helpPane;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7689454844563641170L;
+	private JPanel helpPane;
     private JPanel testingPane;
     private JPanel generatePane;
     private JPanel setupPane;
@@ -884,7 +885,6 @@ class HelpPanel extends JTabbedPane implements HyperlinkListener {
 
     public HelpPanel(ControlListener controls) {
         super(JTabbedPane.TOP, JTabbedPane.WRAP_TAB_LAYOUT);
-        listener = controls;
         setName("helpPanel");
 
         if(Desktop.isDesktopSupported()) {

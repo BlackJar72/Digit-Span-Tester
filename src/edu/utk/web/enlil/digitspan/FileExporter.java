@@ -35,7 +35,6 @@ import javax.swing.JFileChooser;
 class FileExporter extends Thread {
 
     private MainWindow mainWindow;
-    private DigitSpanTester mainClass;
     private RandomSequencer generator;
 
     static final int SAVE_RESULTS = 0;
@@ -85,7 +84,8 @@ class FileExporter extends Thread {
     }
 
 
-    public boolean writeScore() {
+    @SuppressWarnings("finally")
+	public boolean writeScore() {
         fileDialog.setDialogTitle("Name or select file to write to: ");
         fileDialog.showOpenDialog(mainWindow);
         File file = fileDialog.getSelectedFile();
@@ -102,7 +102,7 @@ class FileExporter extends Thread {
         } finally {
             if(exportWriter != null) try {
                 exportWriter.close();
-            } catch (IOException x) {}
+            } catch (final IOException x) {}
             return true;
         }
     }

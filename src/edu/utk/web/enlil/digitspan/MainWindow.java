@@ -27,20 +27,20 @@ package edu.utk.web.enlil.digitspan;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.logging.Logger;
 
 
 
-final class MainWindow extends JFrame {
+public final class MainWindow extends JFrame {
 
-    private DigitSpanTester mainClass;
+
+	private static final long serialVersionUID = 1710637935004531500L;
+	private DigitSpanTester mainClass;
     private ControlListener listener;
 
     private JPanel contentPane;
     private CardLayout mainLayout;
     private JMenuBar mainMenu;
-    private JDialog errorFrame;
-
+    
     MainPanel mainPane;
     GenerationPanel generatePane;
     SetupPanel setupPane;

@@ -36,9 +36,6 @@ final class UserSequences extends AbstractSequences {
     private boolean maxedOut = false;
     private int longest;
 
-    private UserSequences() {}
-
-
     public UserSequences(GeneratedSequences match) {
         int numSets = match.getNumSets();
         int setSize = match.getSetSize();
