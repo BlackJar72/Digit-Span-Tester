@@ -1,3 +1,5 @@
+## Do to the flurry of new age verification laws I do not have the infrastructure to comply with, I will not be making or working on videogames or any other standalone software applications. ##
+
 # Digit Span Tester
 
 This is an old and dead / discontinued project from several years ago.  I don't plan to update this.  The reason it is here is for sharing purposes -- in case anyone, for whatever reason, would like to fork the project to add features they need of fix problems they have.  That is it.  I have not worked on this in years, and do not plan to start again.  This was actually a learning project, and only the second GUI / desktop app I ever made; I thought back to may days as a student and imagined something that might have been useful in a lab I was in and made it.  My lack of experience at the time should be a warning, I didn't really know what I was doing, and this can be very buggy and the code is kind of a mess.
